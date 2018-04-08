@@ -10,6 +10,7 @@
 
 * wifi直连
 * 网络抓包
+* 连接指定wifi网络
 
 ## 依赖方式
 * 可以直接依赖deep_wifi那个module
@@ -80,3 +81,14 @@
 
 ### 其它获取信息：
 可以直接调用` DeepWifi.getInstance(MainActivity.this).getXXX`进行获取，可以获取到mac地址，ip，信号强度等信息。
+
+|接口|作用|
+|:---|:---|
+|getNetId|获取netid|
+|getConnectedBSSID|获取连接wifi的BSSID|
+|getConnectedSSID|获取连接wifi的SSID|
+|getConnectedFrequency|获取连接wifi的Frequency|
+|getIP|获取连接wifi的IP|
+|getSpeed|获取连接wifi的速度|
+|getRssi|获取连接wifi的Rssi|
+|getConnectedInfo|获取连接wifi的WifiInfo|
