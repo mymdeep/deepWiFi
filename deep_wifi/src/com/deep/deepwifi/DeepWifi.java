@@ -374,7 +374,7 @@ public class DeepWifi {
         l.add(f);
 
     }
-    public boolean turnOnWifiAp(String ssid, String password,WifiSecurityType Type) {
+    public boolean turnOnWifiAp(String ssid, String password,HotPointType Type) {
 
         //配置热点信息。
         WifiConfiguration wcfg = new WifiConfiguration();
@@ -386,12 +386,12 @@ public class DeepWifi {
         wcfg.allowedPairwiseCiphers.clear();
         wcfg.allowedProtocols.clear();
 
-        if(Type == WifiSecurityType.WIFICIPHER_NOPASS) {
+        if(Type == HotPointType.WIFICIPHER_NOPASS) {
             wcfg.allowedAuthAlgorithms.set(WifiConfiguration.AuthAlgorithm.OPEN, true);
             wcfg.wepKeys[0] = "";
             wcfg.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
             wcfg.wepTxKeyIndex = 0;
-        } else if(Type == WifiSecurityType.WIFICIPHER_WPA) {
+        } else if(Type == HotPointType.WIFICIPHER_WPA) {
             //密码至少8位，否则使用默认密码
             if(null != password && password.length() >= 8){
                 wcfg.preSharedKey = password;
@@ -407,7 +407,7 @@ public class DeepWifi {
             wcfg.allowedProtocols.set(WifiConfiguration.Protocol.WPA);
             wcfg.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.CCMP);
             wcfg.allowedPairwiseCiphers.set(WifiConfiguration.PairwiseCipher.CCMP);
-        } else if(Type == WifiSecurityType.WIFICIPHER_WPA2) {
+        } else if(Type == HotPointType.WIFICIPHER_WPA2) {
             //密码至少8位，否则使用默认密码
             if(null != password && password.length() >= 8){
                 wcfg.preSharedKey = password;

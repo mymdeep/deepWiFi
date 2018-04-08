@@ -21,7 +21,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.TextView;
 import com.deep.deepwifi.DeepWifi;
 import com.deep.deepwifi.L;
-import com.deep.deepwifi.WifiSecurityType;
+import com.deep.deepwifi.HotPointType;
 import com.deep.deepwifi.bean.ARPBean;
 import com.deep.deepwifi.interfaces.ARPCallback;
 import com.deep.deepwifi.interfaces.WiFiListener;
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         initToolBar();
         initRecyclerView();
-        floatingActionButton = findViewById(R.id.fab_add);
+        floatingActionButton = (FloatingActionButton)findViewById(R.id.fab_add);
         floatingActionButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.hotpoint).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-               boolean result =  DeepWifi.getInstance(MainActivity.this).turnOnWifiAp("deep","12345678", WifiSecurityType.WIFICIPHER_WPA2);
+               boolean result =  DeepWifi.getInstance(MainActivity.this).turnOnWifiAp("deep","12345678", HotPointType.WIFICIPHER_WPA2);
                 if (result){
                     android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(MainActivity.this);
                     builder.setTitle("热点建立");
@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     private void initText(){
-        tv = findViewById(R.id.ip);
+        tv = (TextView)findViewById(R.id.ip);
         StringBuilder sb = new StringBuilder();
         sb.append("IP地址：").append( DeepWifi.getInstance(this).getIP()).append("\n");
         sb.append("BSSID：").append( DeepWifi.getInstance(this).getConnectedBSSID()).append("\n");
